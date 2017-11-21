@@ -1,7 +1,9 @@
 package main.java.mongo.controller;
 
 import java.util.List;
+
 import main.java.mongo.configs.ApplicationContextMongo;
+import main.java.mongo.designpatterns.SingletonPattern;
 import main.java.mongo.model.User;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -17,12 +19,18 @@ public class DemoCrudAppMongo {
         //ApplicationContextMongo ctx = new GenericXmlApplicationContext("SpringConfig.xml");
 
 
-        ApplicationContextMongo applicationContext= new ApplicationContextMongo();
-
+        ApplicationContextMongo applicationContext = new ApplicationContextMongo();
 
 
         // For Annotation
-        MongoOperations mongoOperation= applicationContext.mongoOperations();
+        // MongoOperations mongoOperation= applicationContext.mongoOperations();
+
+
+        /**
+         * with singleton pattern
+         */
+        MongoOperations mongoOperation = SingletonPattern.getInstance().connectDb();
+
         User user = new User();
         user.setUsername("omers");
         user.setPassword("1234");
@@ -42,7 +50,7 @@ public class DemoCrudAppMongo {
 
         // update password
         mongoOperation.updateFirst(searchUserQuery,
-                Update.update("password", "new password"),User.class);
+                Update.update("password", "new password"), User.class);
 
         // find the updated user object
         User updatedUser = mongoOperation.findOne(searchUserQuery, User.class);

@@ -1,6 +1,7 @@
 package main.java.mongo.service;
 
 import main.java.mongo.configs.ApplicationContextMongo;
+import main.java.mongo.designpatterns.SingletonPattern;
 import main.java.mongo.model.User;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -18,9 +19,20 @@ import java.util.List;
 public class UserService {
 
 
+
+
+
+
     ApplicationContextMongo applicationContext = new ApplicationContextMongo();
 
-    MongoOperations mongoOperations = applicationContext.mongoOperations();
+    //MongoOperations mongoOperations = applicationContext.mongoOperations();
+
+    /**
+     * With pattern
+     */
+    MongoOperations mongoOperations = SingletonPattern.getInstance().connectDb();
+
+
 
     @Transactional
     public boolean delete(User user) {
