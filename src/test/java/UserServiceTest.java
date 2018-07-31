@@ -15,11 +15,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import java.util.List;
 
 
-@RunWith(SpringJUnit4ClassRunner.class)
+/*@RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {AppConfigForTest.class})
+*/
 public class UserServiceTest {
 
-    @Autowired
+ /*   @Autowired
     private UserService userService;
 
     @Before
@@ -76,6 +77,7 @@ public class UserServiceTest {
 
 
     }
+    */
 
 
 }
