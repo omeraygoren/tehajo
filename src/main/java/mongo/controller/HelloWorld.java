@@ -12,7 +12,7 @@ public class HelloWorld {
 
         String message = "<br><div style='text-align:center;'>"
                 + "<h3>********** Merhaba Dunyaliiiiii...... ************</h3>" +
-                "******** Merhaba **********</div><br><br>";
+                "******** Merhaba **********</div><br><br>
         return new ModelAndView("hello", "message", message);
     }
 }
