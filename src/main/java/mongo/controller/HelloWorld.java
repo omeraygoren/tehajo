@@ -11,7 +11,7 @@ public class HelloWorld {
     public ModelAndView helloWorld() {
 
         String message = "<br><div style='text-align:center;'>"
-                + "<h3>********** Bu alanı değiştirdim...... ************</h3>" +
+                + "<h3>********** Merhaba Dunyaliiiiii...... ************</h3>" +
                 "******** Merhaba **********</div><br><br>";
         return new ModelAndView("hello", "message", message);
     }
